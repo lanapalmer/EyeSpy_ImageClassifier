@@ -1,6 +1,6 @@
 ![Header Image](https://github.com/lanapalmer/EyeSpy_ImageClassifier/blob/master/images/EyeSpy-GitHubHeader.png)
 
-# Eye Spy: An CNN Image Classifier for Headshot Photographers #
+# Eye Spy: A CNN Image Classifier for Headshot Photographers #
 
 ## Introduction ##
 
@@ -8,7 +8,12 @@ I have a side business as a photographer, focusing on headshot photography for f
 
 Photos where the subject is blinking or has partially closed eyes aren't usually the most flattering images, so after every session, I manually edit out these photographs before sending them to the client. This can can take 30 minutes to an hour for each session.
 
-I was considering hiring an assistant to do this task, but first, I wanted to see if I could create a convolutional neural network to filter through the photographs and classify them, saving me time and expense.
+<p align="center">
+<img src='https://github.com/lanapalmer/EyeSpy_ImageClassifier/blob/master/images/web-example-image.png'>
+  </p>
+
+Hourly shooting rates for headshot photographers typically start at $100/hour, so maximizing shooting time and minimizing editing time is always a priority.
+I was considering hiring an assistant to do this tedious editing work, but first, I wanted to see if I could create a convolutional neural network to filter through the photographs and classify them, saving me time and expense.
 
 ## Objective ##
 To build a convolutional neural network that correctly classifies images where the subject is blinking with 80% accuracy, and deploy it as a web app.
@@ -30,28 +35,47 @@ For the privacy of my clients I am not including the images on github, but this 
   
 ## Initial Model ##
 
-** Initial Model Metrics **
-Train Accuracy: 0.817, Test Accuracy: 0.777
-Precision: 0.778523
-Recall: 0.773333
-F1 score: 0.775920
+I built the initial model using the Gradient Machine Learning Platform on Paperspace. I used  Keras with TensorFlow 2.0 to build a three layer sequential model.
 
+### Initial Model Metrics ###
+* Train Accuracy: 0.817, Test Accuracy: 0.777
+* Precision: 0.778523
+* Recall: 0.773333
+* F1 score: 0.775920
+
+<p align="center">
+<img src='https://github.com/lanapalmer/EyeSpy_ImageClassifier/blob/master/images/EyeSpy-InitialModel.png'  height="400">
+</p>
+
+  
 ## Model Tuning ##
 
-I tuned the model using the Keras Hyperband tuner, resulting in a optimal learning rate of .0001 over 10 epochs.
+I tuned the model using the Keras Hyperband tuner, resulting in an optimal learning rate of .0001 over 10 epochs.
 
-** Final Model Metrics **
-Train Accuracy: 0.86, Test Accuracy: 0.79 Precision: 0.77
-Recall: 0.82
-F1 score: 0.775
+### Final Model Metrics ###
+* Train Accuracy: 0.86, Test Accuracy: 0.79 
+* Precision: 0.77
+* Recall: 0.82
+* F1 score: 0.775
+
+<p align="center">
+<img src='https://github.com/lanapalmer/EyeSpy_ImageClassifier/blob/master/images/EyeSpy-FinalModel.png'  height="400">
+</p>
+
 
 ## Conclusion ##
 
 The convolutional neural network was able to classify blinks versus non-blinks with 79% accuracy on the testing data set.
 
-## NEXT STEPS ##
+## Next Steps ##
 
-I plan to back to the initial model and see which images are being misclassified. I can then provide more training examples of similar images, which may improve model performance.
+I plan to go back to the initial model and see which images are being misclassified. I can then provide more training examples of similar images, which may improve model performance.
 
-After improving model performance, I'd like to build a more robust app that will import a large number of images, and filter them into two groups for final review.
-This could either be a web app, an MacOS app, or a plugin to an existing photo editing application.
+After improving model performance, I'd like to build a more robust app that will import a large number of images, and filter them into two groups for final review. This could either be a web app, an MacOS app, or a plugin to an existing photo editing application.
+
+I view ‘blinks vs non-blinks’ as the first feature of a more comprehensive application that can classify images that are out-of-focus, poorly framed, or have motion blur. Ideally, over time it can become an indispensable virtual assistant for photographers.
+
+## Credits ##
+
+Thank you to my <a href='https://www.springboard.com/'>Springboard</a> mentor Blake Arensdorf for helping me to hone my skills, and to the entire Springboard team for their guidance and support.
+
