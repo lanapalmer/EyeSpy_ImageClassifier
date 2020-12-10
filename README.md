@@ -1,12 +1,16 @@
 ![Header Image](https://github.com/lanapalmer/EyeSpy_ImageClassifier/blob/master/images/EyeSpy-GitHubHeader.png)
 
-# Eye Spy: An CNN Image Classifier for Headshot Photographers #
+# Eye Spy: A CNN Image Classifier for Headshot Photographers #
 
 ## Introduction ##
 
 I have a side business as a photographer, focusing on headshot photography for film and theatre actors. In every session, headshot photographers will typically take 300-600 photographs. Invariably, the subject is blinking, or has partially closed eyes in some of these images.
 
 Photos where the subject is blinking or has partially closed eyes aren't usually the most flattering images, so after every session, I manually edit out these photographs before sending them to the client. This can can take 30 minutes to an hour for each session.
+
+<p align="center">
+<img src='https://github.com/lanapalmer/EyeSpy_ImageClassifier/blob/master/images/web-example-image.png'>
+  </p>
 
 I was considering hiring an assistant to do this task, but first, I wanted to see if I could create a convolutional neural network to filter through the photographs and classify them, saving me time and expense.
 
@@ -30,20 +34,33 @@ For the privacy of my clients I am not including the images on github, but this 
   
 ## Initial Model ##
 
-** Initial Model Metrics **
-Train Accuracy: 0.817, Test Accuracy: 0.777
-Precision: 0.778523
-Recall: 0.773333
-F1 score: 0.775920
+I built the initial model using the Gradient Machine Learning Platform on Paperspace. I used  Keras with TensorFlow 2.0 to build a three layer sequential model.
 
+### Initial Model Metrics ###
+* Train Accuracy: 0.817, Test Accuracy: 0.777
+* Precision: 0.778523
+* Recall: 0.773333
+* F1 score: 0.775920
+
+<p align="center">
+<img src='https://github.com/lanapalmer/EyeSpy_ImageClassifier/blob/master/images/EyeSpy-InitialModel.png'  height="400">
+</p>
+
+  
 ## Model Tuning ##
 
 I tuned the model using the Keras Hyperband tuner, resulting in a optimal learning rate of .0001 over 10 epochs.
 
-** Final Model Metrics **
-Train Accuracy: 0.86, Test Accuracy: 0.79 Precision: 0.77
-Recall: 0.82
-F1 score: 0.775
+### Final Model Metrics ###
+* Train Accuracy: 0.86, Test Accuracy: 0.79 
+* Precision: 0.77
+* Recall: 0.82
+* F1 score: 0.775
+
+<p align="center">
+<img src='https://github.com/lanapalmer/EyeSpy_ImageClassifier/blob/master/images/EyeSpy-FinalModel.png'  height="400">
+</p>
+
 
 ## Conclusion ##
 
